@@ -1,0 +1,27 @@
+#!/bin/bash
+echo "get started"
+if [ $# -eq 0 ]
+  then
+    echo "Please provide the input and output paths"
+fi
+while [[ $# -gt 0 ]]
+do
+currArgument="$1"
+
+case $currArgument in 
+    -i)
+    INPUTPATH="$2"
+    shift 
+    shift # shift the argument and the values
+    ;;
+    -o)
+    OUTPUTPATH="$2"
+    shift 
+    shift # shift the argument and the values
+    ;;
+esac
+done
+
+echo INPUT PATH  = "${INPUTPATH}"
+echo OUTPUT PATH     = "${OUTPUTPATH}"
+python hello.py
